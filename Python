@@ -1,0 +1,18 @@
+class Solution(object):
+    def triangleNumber(self, nums):
+        nums=sorted(nums)
+        count=0
+        for i in range(2,len(nums))[::-1]:
+            l=0
+            r=i-1
+            while l<r:
+                if nums[l]+nums[r]>nums[i]:
+                    count+=+r-l
+                    r-=1
+                else:
+                    l+=1
+        return count
+nums=[2,2,3,4]
+s=Solution()
+count=s.triangleNumber(nums)
+print(count)
